@@ -13,7 +13,8 @@ class UserTest  {
         //given
         User user = new User();
         //when
-        user.initPassword(new  CorrectFixedPasswordGenerator());
+        //user.initPassword(new  CorrectFixedPasswordGenerator());
+        user.initPassword(()->"abcdefgh");
         //then
         assertThat(user.getPassword()).isNotBlank(); //
     }
@@ -23,7 +24,8 @@ class UserTest  {
         //given
         User user = new User();
         //when
-        user.initPassword(new  WrongFixedPasswordGenerator());
+        //user.initPassword(new  WrongFixedPasswordGenerator());
+        user.initPassword(()->"ab");  //@funtinalinterface를 사용하면 람다형식으로 표현할수잇다
         //then
         assertThat(user.getPassword()).isNull(); // 계속 두글자이므로 null 값
     }
