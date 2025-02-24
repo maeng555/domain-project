@@ -10,6 +10,16 @@ repositories {
 }
 
 dependencies {
+    //tomcat 관련된 의존성
+    implementation 'org.apache.tomcat.embed:tomcat-embed-core:8.5.42'
+    implementation 'org.apache.tomcat.embed:tomcat-embed-jasper:8.5.42'
+
+    //자바를이용해서 웹어플리케이션ㄴ을 만들겟다는 의미 . 사용하려면 서블릿이 필요하다
+    implementation 'javax.servlet:javax.servlet-api:4.0.1'
+    implementation 'javax.servlet:jstl:1.2' //jsp를 이용해서 화면을 구성한다 지금은 사용하지않음
+
+    implementation 'ch.qos.logback:logback-classic:1.2.3' //로고를 출력
+
     testImplementation platform('org.junit:junit-bom:5.10.0')
     testImplementation 'org.junit.jupiter:junit-jupiter'
 }
