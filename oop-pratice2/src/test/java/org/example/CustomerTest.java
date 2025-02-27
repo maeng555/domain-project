@@ -1,6 +1,12 @@
 package org.example;
 
+import org.junit.jupiter.api.DisplayName;
 import org.junit.jupiter.api.Test;
+
+import java.util.List;
+
+import static org.assertj.core.api.Assertions.assertThatCode;
+
 /**
 1. 도메인을 구성하는 객체에는 어떤 것들이 있는지 고민
  손님, 메뉴판 , 메뉴-만두 돈까스 , 요리사 , 요리
@@ -19,7 +25,14 @@ import org.junit.jupiter.api.Test;
 6. 구현하기
  **/
 public class CustomerTest {
+    @DisplayName("메뉴이름에 해당하는 요리를 주문한다")
     @Test
-    void name() {
+    void orderTest() {
+        Customer customer =new Customer();
+        Menu menu = new Menu(List.of(new MenuItem("만두",5000),new MenuItem("돈까스",6000)));
+        Cooking cooking = new Cooking();
+        assertThatCode(()->customer.order("돈까스",menu,cooking))
+               .doesNotThrowAnyException();
+
     }
 }
